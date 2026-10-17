@@ -1,1 +1,17 @@
 @import 'tailwindcss';
+
+@theme {
+	--font-display: 'Bagel Fat One', ui-rounded, system-ui, sans-serif;
+	--font-sans: 'Onest', ui-sans-serif, system-ui, sans-serif;
+
+	--color-pistachio: #dde6cf;
+	--color-pistachio-deep: #c5d3b0;
+	--color-aubergine: #2b1b30;
+	--color-good: #16a34a;
+	--color-bad: #e5372b;
+	--color-tip: #5b6cf0;
+}
+
+body {
+	@apply bg-pistachio font-sans text-aubergine antialiased;
+}

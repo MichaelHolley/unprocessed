@@ -11,15 +11,21 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"db:generate": "node --env-file-if-exists=.env node_modules/drizzle-kit/bin.cjs generate",
+		"db:migrate": "node --env-file-if-exists=.env scripts/migrate.ts",
+		"db:studio": "node --env-file-if-exists=.env node_modules/drizzle-kit/bin.cjs studio",
+		"db:seed": "node --env-file-if-exists=.env scripts/seed.ts"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
-		"@sveltejs/adapter-auto": "^8.0.0",
+		"@sveltejs/adapter-node": "^6.0.0",
 		"@sveltejs/kit": "^3.0.1",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"@tailwindcss/vite": "^4.3.3",
+		"@types/better-sqlite3": "^9.6.0",
 		"@types/node": "^24",
+		"drizzle-kit": "^0.31.11",
 		"eslint": "^10.12.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.23.1",
@@ -37,5 +43,12 @@
 	"imports": {
 		"#lib": "./src/lib/index.js",
 		"#lib/*": "./src/lib/*"
+	},
+	"dependencies": {
+		"@tanstack/ai": "^0.69.0",
+		"@tanstack/ai-openrouter": "^0.22.0",
+		"better-sqlite3": "^13.0.3",
+		"drizzle-orm": "^0.45.4",
+		"zod": "^4.6.7"
 	}
 }

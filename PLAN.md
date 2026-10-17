@@ -37,7 +37,7 @@ impacts
   position  integer not null
 ```
 
-- `pnpm db:seed` inserts the 12 foods from Know Your Food (`src/data/foods.ts`) into an empty database.
+- `pnpm db:seed` inserts the 16 foods from Know Your Food (`src/data/foods.ts`) into an empty database.
 - Scripts: `db:generate`, `db:migrate`, `db:studio`, `db:seed`.
 
 ## Public page `/`

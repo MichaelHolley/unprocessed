@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    env_file: .env
+    environment:
+      DATABASE_URL: /data/unprocessed.db
+    volumes:
+      - db-data:/data
+
+volumes:
+  db-data:
