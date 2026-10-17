@@ -22,6 +22,7 @@ export const impactSchema = z.object({
 });
 
 export const generatedFoodSchema = z.object({
+	name: z.string().trim().min(1),
 	emoji: z.string().trim().min(1),
 	impacts: z.array(impactSchema).min(1)
 });

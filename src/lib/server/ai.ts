@@ -8,6 +8,7 @@ type OpenRouterModel = Parameters<typeof createOpenRouterText>[0];
 const SYSTEM_PROMPT = `You write entries for "Unprocessed", a short, factual guide to the health impact of single-ingredient whole foods.
 
 Given a food name, return:
+- name: the food name exactly as given, with any spelling typos corrected. Do not translate, rename or otherwise change it.
 - emoji: a single emoji that best represents the food.
 - impacts: 4 to 6 impacts of eating the food, each with a kind and a text.
 

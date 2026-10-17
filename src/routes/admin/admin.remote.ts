@@ -61,14 +61,18 @@ export const generateNewFood = form(
 			invalid(messageOf(cause));
 		}
 
+		const generatedId = slugify(generated.name);
+		if (!generatedId) invalid(issue.name('Name must contain letters or numbers'));
+
 		try {
-			createFood({ id, name, ...generated });
+			createFood({ id: generatedId, ...generated });
 		} catch (cause) {
-			if (cause instanceof DuplicateFoodError) invalid(issue.name(`"${id}" already exists`));
+			if (cause instanceof DuplicateFoodError)
+				invalid(issue.name(`"${generatedId}" already exists`));
 			throw cause;
 		}
 
-		redirect(303, `/admin/${id}`);
+		redirect(303, `/admin/${generatedId}`);
 	}
 );
 
