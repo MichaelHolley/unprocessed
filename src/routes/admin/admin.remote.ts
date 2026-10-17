@@ -72,7 +72,7 @@ export const generateNewFood = form(
 			throw cause;
 		}
 
-		redirect(303, `/admin/${generatedId}`);
+		await listAdminFoods().refresh();
 	}
 );
 
