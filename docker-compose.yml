@@ -7,6 +7,8 @@ services:
     env_file: .env
     environment:
       DATABASE_URL: /data/unprocessed.db
+      PROTOCOL_HEADER: x-forwarded-proto
+      HOST_HEADER: x-forwarded-host
     volumes:
       - db-data:/data
 
