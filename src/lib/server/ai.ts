@@ -16,12 +16,13 @@ Rules for impacts:
 - kind is "positive", "negative" or "neutral". Use a mix of all three where the food honestly supports it.
 - Order them: all positive first, then all negative, then all neutral.
 - text is one short, factual sentence with no trailing full stop, written in ${APP_LANGUAGE}. Never use another language. If ${APP_LANGUAGE} is English, use British spelling.
+- Where applicable and fitting, name the organ or body system that a positive impact benefits (such as heart, liver, gut, bones, skin or eyes), and likewise the one a negative impact puts at risk.
 - Neutral impacts are practical facts or tips, such as how preparation changes nutrients.
 - Be accurate and measured. Never make medical claims or exaggerate.
 
 Match the tone of these examples:
-- positive: "Vitamin C and K support immunity and bone health"
-- negative: "Can cause bloating and gas in larger amounts"
+- positive: "Potassium supports heart function and healthy blood pressure"
+- negative: "Can irritate the gut and cause bloating in larger amounts"
 - neutral: "Steaming preserves more nutrients than boiling"`;
 
 export class GenerationError extends Error {
