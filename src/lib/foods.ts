@@ -21,10 +21,28 @@ export const impactSchema = z.object({
 	text: z.string().trim().min(1)
 });
 
+export const IMPACT_LIMITS: Record<ImpactKind, { min: number; max: number }> = {
+	positive: { min: 2, max: 4 },
+	negative: { min: 1, max: 2 },
+	neutral: { min: 0, max: 2 }
+};
+
+export const impactsSchema = z.array(impactSchema).superRefine((impacts, ctx) => {
+	for (const kind of IMPACT_KINDS) {
+		const { min, max } = IMPACT_LIMITS[kind];
+		const count = impacts.filter((impact) => impact.kind === kind).length;
+		if (count < min || count > max)
+			ctx.addIssue({
+				code: 'custom',
+				message: `Needs ${min}-${max} ${kind} impacts, got ${count}`
+			});
+	}
+});
+
 export const generatedFoodSchema = z.object({
 	name: z.string().trim().min(1),
 	emoji: z.string().trim().min(1),
-	impacts: z.array(impactSchema).min(1)
+	impacts: impactsSchema
 });
 
 export type GeneratedFood = z.infer<typeof generatedFoodSchema>;

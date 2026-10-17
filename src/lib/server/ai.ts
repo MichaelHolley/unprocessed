@@ -10,12 +10,13 @@ const SYSTEM_PROMPT = `You write entries for "Unprocessed", a short, factual gui
 Given a food name, return:
 - name: the food name exactly as given, with any spelling typos corrected. Do not translate, rename or otherwise change it.
 - emoji: a single emoji that best represents the food.
-- impacts: 4 to 6 impacts of eating the food, each with a kind and a text.
+- impacts: the impacts of eating the food, each with a kind and a text.
 
 Rules for impacts:
-- kind is "positive", "negative" or "neutral". Use a mix of all three where the food honestly supports it.
+- kind is "positive", "negative" or "neutral". Return 2 to 4 positive, 1 to 2 negative and 0 to 2 neutral impacts. Only include neutral impacts that are genuinely useful.
 - Order them: all positive first, then all negative, then all neutral.
-- text is one short, factual sentence with no trailing full stop, written in ${APP_LANGUAGE}. Never use another language. If ${APP_LANGUAGE} is English, use British spelling.
+- text is one short, factual sentence of around 10 words with no trailing full stop, written in ${APP_LANGUAGE}. Never use another language. If ${APP_LANGUAGE} is English, use British spelling.
+- Write for consumers with no nutrition knowledge: plain everyday words, no jargon, and no nutrient names unless they are widely known.
 - Where applicable and fitting, name the organ or body system that a positive impact benefits (such as heart, liver, gut, bones, skin or eyes), and likewise the one a negative impact puts at risk.
 - Neutral impacts are practical facts or tips, such as how preparation changes nutrients.
 - Be accurate and measured. Never make medical claims or exaggerate.

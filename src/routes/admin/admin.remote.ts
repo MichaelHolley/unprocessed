@@ -1,7 +1,7 @@
 import { error, invalid, redirect } from '@sveltejs/kit';
 import { command, form, getRequestEvent, query } from '$app/server';
 import { z } from 'zod';
-import { impactSchema, slugify, type GeneratedFood } from '#lib/foods.js';
+import { impactsSchema, slugify, type GeneratedFood } from '#lib/foods.js';
 import { GenerationError, generateFood } from '#lib/server/ai.js';
 import { createSession, destroySession, requireAdmin, verifyPassword } from '#lib/server/auth.js';
 import {
@@ -81,7 +81,7 @@ export const saveFood = form(
 		id: idSchema,
 		name: z.string().trim().min(1, 'Name is required'),
 		emoji: z.string().trim().min(1, 'Emoji is required'),
-		impacts: z.array(impactSchema)
+		impacts: impactsSchema
 	}),
 	async ({ id, name, emoji, impacts }) => {
 		requireAdmin();
