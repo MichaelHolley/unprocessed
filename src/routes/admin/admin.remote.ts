@@ -86,8 +86,8 @@ export const saveFood = form(
 		if (impacts.length !== existing.impacts.length)
 			error(400, 'Impacts cannot be added or removed');
 		updateFood(id, { name, emoji, impacts });
-		await getAdminFood(id).refresh();
-		return { saved: true };
+		await listAdminFoods().refresh();
+		redirect(303, '/admin');
 	}
 );
 

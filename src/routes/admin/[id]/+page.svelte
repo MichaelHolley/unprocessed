@@ -107,11 +107,8 @@
 		<p class="mt-3 text-sm font-medium text-bad">{issue.message}</p>
 	{/each}
 
-	<div class="mt-6 flex items-center gap-4">
+	<div class="mt-6">
 		<AdminButton disabled={!!save.pending}>{save.pending ? 'Saving…' : 'Save'}</AdminButton>
-		{#if save.result?.saved}
-			<span class="font-medium text-good">Saved</span>
-		{/if}
 	</div>
 </form>
 
