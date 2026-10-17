@@ -4,7 +4,9 @@
 	import { generateNewFood, listAdminFoods, logout } from './admin.remote.js';
 </script>
 
-<header class="flex items-center justify-between gap-4">
+<a href={resolve('/')} class="font-semibold underline underline-offset-4">&larr; Back to site</a>
+
+<header class="mt-6 flex items-center justify-between gap-4">
 	<h1 class="font-display text-5xl">Admin</h1>
 	<form {...logout}>
 		<AdminButton variant="secondary">Log out</AdminButton>
