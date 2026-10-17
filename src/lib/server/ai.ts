@@ -1,4 +1,4 @@
-import { OPENROUTER_API_KEY, OPENROUTER_MODEL } from '$app/env/private';
+import { APP_LANGUAGE, OPENROUTER_API_KEY, OPENROUTER_MODEL } from '$app/env/private';
 import { chat } from '@tanstack/ai';
 import { createOpenRouterText } from '@tanstack/ai-openrouter';
 import { generatedFoodSchema, type GeneratedFood } from '#lib/foods.js';
@@ -14,7 +14,7 @@ Given a food name, return:
 Rules for impacts:
 - kind is "positive", "negative" or "neutral". Use a mix of all three where the food honestly supports it.
 - Order them: all positive first, then all negative, then all neutral.
-- text is one short, factual sentence with no trailing full stop. Use British spelling.
+- text is one short, factual sentence with no trailing full stop, written in ${APP_LANGUAGE}. Never use another language. If ${APP_LANGUAGE} is English, use British spelling.
 - Neutral impacts are practical facts or tips, such as how preparation changes nutrients.
 - Be accurate and measured. Never make medical claims or exaggerate.
 

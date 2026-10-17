@@ -20,5 +20,9 @@ export const variables = defineEnvVars({
 	OPENROUTER_MODEL: {
 		description: 'OpenRouter model id used for AI generation',
 		schema: z.string().min(1).default('google/gemini-2.5-flash')
+	},
+	APP_LANGUAGE: {
+		description: 'Language the AI writes food entries in',
+		schema: z.string().min(1).default('English')
 	}
 });
